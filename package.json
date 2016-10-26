@@ -8,6 +8,8 @@
     "dev": "npm run start:dev",
     "lint": "standard --fix 'src/**/*.js' | snazzy",
     "start": "node .",
+    "start:desktop": "node dist/index.js",
+    "start:mobile": "node dist/mobile.js",
     "start:dev": "babel-node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
