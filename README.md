@@ -28,7 +28,6 @@ I probably won't look into fixing any of these unless anyone else shows interest
 
   - [ ] should complete the daily offers
   - [ ] should not stop until daily points are completely maxed (currently just clicks all the featured links, which gets _most_ of the points)
-  - [ ] should show an error or prompt for username/password if they have not been supplied
 
 ## API
 

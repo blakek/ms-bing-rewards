@@ -6,6 +6,15 @@ import { authentication, userAgent } from './config'
 
 const { username, password } = authentication
 
+// Only try to log in if a username and password is given
+if (username == null) {
+  console.error('username is required but was not given')
+  process.exit(1)
+} else if (password == null) {
+  console.error('password is required but was not given')
+  process.exit(1)
+}
+
 const nightmare = Nightmare({
   show: true
 })
