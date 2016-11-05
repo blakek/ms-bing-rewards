@@ -19,6 +19,8 @@ export const login = (username, password) => (nightmare) => {
     .click('#signin-link')
     .wait('input[name="loginfmt"]')
     .type('input[name="loginfmt"]', username)
+    .click('input[type="submit"]')
+    .wait(500)
     .type('input[name="passwd"]', password)
     .check('input[name="KMSI"]')
     .click('input[type="submit"]')
