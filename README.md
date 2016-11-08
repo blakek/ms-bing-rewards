@@ -8,7 +8,7 @@ This project is a simple [Nightmare](https://github.com/segmentio/nightmare) scr
 
 ## Usage
 
-  1. Either [clone this repo](https://help.github.com/articles/cloning-a-repository/) or [download the zip file](https://github.com/blakek/archive/master.zip).
+  1. Either [clone this repo](https://help.github.com/articles/cloning-a-repository/) or [download the zip file](https://github.com/blakek/ms-bing-rewards/archive/master.zip).
   2. Set your username & password using the LIVE_USERNAME and LIVE_PASSWORD environment variables.  For example:
     * `export LIVE_USERNAME='youremail@live.com'`
     * `export LIVE_PASSWORD='yourpassword'`
