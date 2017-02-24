@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "axios": "^0.15.2",
-    "nightmare": "^2.7.0",
+    "nightmare": "^2.10.0",
     "snazzy": "^6.0.0",
     "standard": "^8.4.0"
   },
