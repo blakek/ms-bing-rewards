@@ -34,7 +34,7 @@
     "axios": "^0.15.2",
     "nightmare": "^2.7.0",
     "snazzy": "^6.0.0",
-    "standard": "^8.4.0"
+    "standard": "^9.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
