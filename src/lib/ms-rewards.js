@@ -16,7 +16,7 @@ export const getStatus = () => (nightmare) => {
 export const login = (username, password) => (nightmare) => {
   nightmare
     .goto('http://www.bing.com/rewards/signup/signin')
-    .click('#signin-link')
+    .click('.identityOption a')
     .wait('input[name="loginfmt"]')
     .type('input[name="loginfmt"]', username)
     .click('input[type="submit"]')
