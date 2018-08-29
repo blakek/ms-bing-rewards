@@ -33,7 +33,7 @@
   "dependencies": {
     "axios": "^0.16.0",
     "nightmare": "^2.7.0",
-    "snazzy": "^6.0.0",
+    "snazzy": "^8.0.0",
     "standard": "^9.0.2"
   },
   "devDependencies": {
