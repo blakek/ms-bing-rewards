@@ -1,37 +1,26 @@
-import puppeteer from 'puppeteer-core';
-import { userAgent } from './config';
-import { login, getSearchLinks } from './lib/ms-rewards';
-import randomInt from './lib/randomInt';
+import puppeteer from 'puppeteer';
+import { getSearchLinks, login, runSearch } from './ms-rewards';
+
+const isDev = process.env.NDOE_ENV !== 'production';
 
 async function main() {
   const browser = await puppeteer.launch({
-    devtools: true,
-    // executablePath: '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser',
-    executablePath:
-      '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-    headless: false
+    devtools: isDev
   });
 
-  const page = await browser.newPage();
-
-  await page.setUserAgent(userAgent.desktop);
-
   const [_, searchLinks] = await Promise.all([
+    // Set the cookies necessary from logging in
     login(browser),
+    // Get list of text to search for
     getSearchLinks(browser)
   ]);
 
-  const runnableSearches = searchLinks.map(textContent => async () => {
-    const searchPage = await browser.newPage();
-    await searchPage.goto('https://bing.com/');
-    await searchPage.type('[name="q"]', textContent, { delay: 26 });
-    const formHandle = await searchPage.$('#sb_form');
-    await formHandle.press('Enter');
-    await searchPage.waitForNavigation();
-    await searchPage.waitFor(randomInt(2000, 5000));
-    await searchPage.close();
-  });
+  // Create a list of searches to run, but don't run them yet
+  const runnableSearches = searchLinks.map(textContent => () =>
+    runSearch(browser, textContent)
+  );
 
+  // Open searches in browser serially
   for (const search of runnableSearches) {
     await search();
   }
@@ -40,23 +29,3 @@ async function main() {
 }
 
 main();
-
-// const nightmare = Nightmare({ show: true });
-
-// nightmare
-//   .useragent(userAgent.desktop)
-//   .use(login(username, password))
-//   .then(() => {
-//     nightmare.use(getSearchLinks()).then(links => {
-//       links.reduce((accum, url) => {
-//         return accum.then(results => {
-//           return nightmare
-//             .goto(url)
-//             .wait('body')
-//             .wait(randomInt(1, 10) * 1000)
-//             .then(result => result);
-//         });
-//       }, Promise.resolve([]));
-//     });
-//   })
-//   .catch(error => console.error('ERROR:', error));
