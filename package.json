@@ -9,7 +9,7 @@
     "lint": "tsc --noEmit && eslint 'src/*/**/*.{js,ts,tsx}' --fix",
     "start:desktop": "node dist/index.js",
     "start:mobile": "node dist/mobile.js",
-    "start": "node .",
+    "start": "NODE_ENV=production node .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch-node": "nodemon ./dist/index.js",
     "watch-typescript": "tsc -w"
@@ -26,12 +26,12 @@
   "homepage": "https://github.com/blakek/ms-bing-rewards#readme",
   "dependencies": {
     "axios": "^0.19.0",
-    "puppeteer-core": "^1.20.0"
+    "puppeteer": "^1.20.0"
   },
   "devDependencies": {
     "@types/nightmare": "^2.10.4",
     "@types/node": "^12.11.1",
-    "@types/puppeteer-core": "^1.9.0",
+    "@types/puppeteer": "^1.9.0",
     "@typescript-eslint/eslint-plugin": "^2.4.0",
     "@typescript-eslint/parser": "^2.4.0",
     "eslint": "^6.5.1",
