@@ -16,10 +16,10 @@ items.
 - Set your username & password using the `LIVE_USERNAME` and `LIVE_PASSWORD` environment variables. For example:
   - `export LIVE_USERNAME='youremail@live.com'`
   - `export LIVE_PASSWORD='yourpassword'`
-- With [npm](https://npmjs.org/) installed, run:
-  - `npm install`
-  - `npm run build`
-  - To run the searches, run `npm run start`
+- With [yarn](https://yarnpkg.com/) installed, run:
+  - `yarn`
+  - `yarn build`
+  - To run the searches, run `yarn start`
 
 **NOTE:** the login screen has been changed several times—sometimes very
 subtly—in the last couple months. Since the script relies on selectors to find
